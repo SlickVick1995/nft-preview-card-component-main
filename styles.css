@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root {
+    --Soft-blue: hsl(215, 51%, 70%);
+    --Cyan: hsl(178, 100%, 50%);
+    --Very-dark-blue-main-BG: hsl(217, 54%, 11%);
+    --Very-dark-blue-card-BG: hsl(216, 50%, 16%);
+    --Very-dark-blue-line: hsl(215, 32%, 27%);
+    --White: hsl(0, 0%, 100%);
+    --font-family: 'Outfit', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--Very-dark-blue-main-BG);
+    color: var(--White);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.card {
+    /* border: 5px solid red; */
+    border-radius: 20px;
+    padding: 30px;
+    width: 400px;
+    background-color: var(--Very-dark-blue-card-BG);
+}
+
+.card img {
+    border-radius: 10px;
+    max-width: 100%;
+    position: relative;
+}
+
+.card img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Cyan); /* Semi-transparent black overlay */
+    background-image: url("images/icon-view.svg"); /* Path to your icon */
+    background-position: center; /* Center the icon */
+    background-repeat: no-repeat; /* Prevent the icon from repeating */
+    background-size: contain; /* Ensure the icon fits within the overlay */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.card img:hover::before {
+    opacity: 1; /* Show the overlay and icon on hover */
+    cursor: pointer;
+}
+
+.card h1 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.card h1:hover {
+    color: var(--Cyan);
+    cursor: pointer;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: var(--Soft-blue);
+    /* text-wrap: balance; */
+    width: 100%;
+    line-height: 1.5;
+}
+
+.container-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--Very-dark-blue-line);
+    padding-bottom: 20px;
+}
+
+.container-eth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 20px; */
+    gap: 10px;
+    color: var(--Cyan);
+}
+
+.container-clock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: var(--Soft-blue);
+}
+
+.container-avatar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container-avatar img {
+    border: 2px solid var(--White);
+    border-radius: 50%;
+    width: 50px;
+}
+
+.container-avatar span {
+    color: var(--White);
+    cursor: pointer;
+}
+
+.container-avatar span:hover {
+    color: var(--Cyan);
+}
